@@ -24,7 +24,7 @@ class MainController extends ParentApi
 
     }
 
-        public function index()
+        public function index(Request $request)
         {
             $slider = Slider::where('is_active',1)->with('attachmentRelation')->get();
 
@@ -155,6 +155,7 @@ class MainController extends ParentApi
 
 //         return $this->helper->responseJson(1, 'dn',$order);
 //             }
+
 // else{
 //     return $this->helper->responseJson(2, 'لا يمكن الاضافه الان علشان التطبيق اترفع :)');
 
