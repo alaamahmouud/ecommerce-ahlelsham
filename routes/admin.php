@@ -20,6 +20,12 @@ Route::group(['middleware' => ['auth:admin']], function () {
     Route::resource('governorates', 'GovernoratController');
     Route::get('governorate/toggle-boolean/{id}/{action}', 'GovernoratController@toggleBoolean')->name('governorate.toggleBoolean');
 
+    Route::resource('products','ProductController');
+    Route::get('products/toggle-boolean/{id}/{action}', 'ProductController@toggleBoolean')->name('products.toggleBoolean');
+
+    Route::resource('categories','CategoryController');
+    Route::get('categories/toggle-boolean/{id}/{action}', 'CategoryController@toggleBoolean')->name('categories.toggleBoolean');
+
     Route::resource('photo', 'PhotoController');
 
 

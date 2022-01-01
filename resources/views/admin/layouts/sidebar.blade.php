@@ -62,6 +62,20 @@
                     <span class="nav-label">الرئيسية</span>
                 </a>
             </li>
+
+            <li>
+               <a href="{{url('admin/categories')}}">
+                    <i class="fa fa-home"></i>
+                    <span class="nav-label">الاقسام</span>
+                </a>
+           </li>
+
+            <li>
+               <a href="{{url('admin/products')}}">
+                    <i class="fa fa-home"></i>
+                    <span class="nav-label">المنتجات</span>
+                </a>
+           </li>
             
             <!-- <li>
                 <a href="{{url('admin/advertisements')}}">
@@ -70,13 +84,13 @@
                 </a>
             </li> -->
 
-
 {{--            <li>--}}
 {{--                <a href="{{url('admin/categories')}}">--}}
 {{--                    <i class="fa fa-home"></i>--}}
 {{--                    <span class="nav-label">الاقسام</span>--}}
 {{--                </a>--}}
 {{--            </li>--}}
+
             <!-- <li>
                 <a href="{{url('admin/services')}}">
                     <i class="fa fa-home"></i>

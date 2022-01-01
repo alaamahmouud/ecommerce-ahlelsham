@@ -18,8 +18,8 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('des');
             $table->decimal('price'); // 200
-            $table->decimal('descount_value'); // 10
-            $table->decimal('price_after_descount'); // 190
+            $table->decimal('discount_value'); // 10
+            $table->decimal('price_after_discount'); // 190
             $table->integer('category_id');
             $table->timestamps();
         });

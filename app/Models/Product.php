@@ -10,7 +10,7 @@ class Product extends Model
 
     protected $table = 'products';
     public $timestamps = true;
-    protected $fillable = array('name', 'des' , 'price' ,'category_id' ,'descount_value' , 'price_after_descount');
+    protected $fillable = array('name', 'des' , 'price' ,'category_id' ,'discount_value' , 'price_after_discount');
 
     public function category()
     {
