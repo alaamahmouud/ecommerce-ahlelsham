@@ -17,9 +17,9 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('des');
-            $table->decimal('price');
-            $table->decimal('descount_value');
-            $table->decimal('price_after_descount');
+            $table->decimal('price'); // 200
+            $table->decimal('descount_value'); // 10
+            $table->decimal('price_after_descount'); // 190
             $table->integer('category_id');
             $table->timestamps();
         });

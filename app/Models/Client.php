@@ -10,8 +10,11 @@ use Laravel\Passport\HasApiTokens;
 class Client extends Authenticatable
 {
     use HasApiTokens;
+
     protected $table = 'clients';
+
     public $timestamps = true;
+    
     protected $fillable = array(
         'first_name',
         'last_name',
@@ -22,7 +25,7 @@ class Client extends Authenticatable
 
     public function orders()
     {
-       return $this->belongsTo(Order::class);
+       return $this->hasMany(Order::class);
     }
 
     public function tokens()

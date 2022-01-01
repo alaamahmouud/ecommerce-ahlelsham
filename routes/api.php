@@ -26,14 +26,11 @@ Route::group(['namespace' => 'Api','prefix'=> 'v1' ],function ()
     Route::post('login','AuthController@login');
   
     Route::group(['middleware' => 'auth:api'],function () {
-       
-
-    Route::get('home','MainController@index');
-    Route::get('orderdetails','MainController@orderdetails');
-    Route::post('contact','MainController@contacts');
-    Route::get('about','MainController@about');
-
-
+        Route::get('home','MainController@index');
+        Route::get('orderdetails','MainController@orderdetails');
+        Route::get('orders/{order}', 'MainController@getOrderDetails');
+        Route::post('contact','MainController@contacts');
+        Route::get('about','MainController@about');
     });
 
 
