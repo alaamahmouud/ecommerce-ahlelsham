@@ -31,6 +31,7 @@ Route::group(['namespace' => 'Api','prefix'=> 'v1' ],function ()
         Route::get('orders/{order}', 'MainController@getOrderDetails');
         Route::post('contact','MainController@contacts');
         Route::get('about','MainController@about');
+        Route::get('discounts','MainController@discounts');
     });
 
 

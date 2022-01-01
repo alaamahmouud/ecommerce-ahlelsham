@@ -28,11 +28,19 @@ class MainController extends ParentApi
 
         public function index(Request $request)
         {
-            if($request->has('category_id')) {
-                $products =Product::where('category_id', $request->category_id)->with('attachmentRelation')->get() ;
-            }else {
-                $products =Product::with('attachmentRelation')->get() ;
-            }
+
+            // if($request->has('category_id')) {
+            //     $products =Product::where('category_id', $request->category_id)->with('attachmentRelation')->get() ;
+            // }else {
+            //     $products =Product::with('attachmentRelation')->get() ;
+            // }
+
+            $products = Product::where(function ($query) use ($request){
+                if ($request->category_id)
+                {
+                    $query->where('category_id',$request->category_id);
+                }
+            })->with('attachmentRelation')->get();
 
             $slider = Slider::where('is_active',1)->with('attachmentRelation')->get();
 
@@ -44,15 +52,13 @@ class MainController extends ParentApi
                 ]);
         }
 
-                
-        // public function discounts()
-        // {
-        //     $products = Product::where('descount_value', '!=', 0)->get();
+        public function discounts()
+        {
+            $products = Product::where('descount_value', '!=', 0)->get();
 
-        //     return $this->helper->responseJson(1,'done', $products);
+            return $this->helper->responseJson(1,'done', $products);
 
-        // }
-
+        }
 
         public function orderdetails()
         {
@@ -98,6 +104,8 @@ class MainController extends ParentApi
 
         return $this->helper->responseJson(1,'done',$about);
      }
+
+                                                                                                                                                                                                                 
 
 
 }
