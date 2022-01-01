@@ -12,12 +12,12 @@ class Product extends Model
     public $timestamps = true;
     protected $fillable = array('name', 'des' , 'price' ,'category_id' ,'descount_value' , 'price_after_descount');
 
-    public function categories()
+    public function category()
     {
        return $this->belongsTo(Category::class);
     }
     
-    public function orders()
+    public function order()
     {
        return $this->belongsTo(Order::class);
     }
