@@ -1,7 +1,7 @@
 @extends('admin.layouts.main',[
-                                'page_header'       => 'الخدمات',
+                                'page_header'       => 'الطلبات',
                                 'page_description'  => '  اضافة  ',
-                                'link' => url('admin/services')
+                                'link' => url('admin/orders')
                                 ])
 @section('content')
 
@@ -10,7 +10,7 @@
     <div class="box box-primary">
         <!-- form start -->
         {!! Form::model($model,[
-                                'action'=>'Admin\ServiceController@store',
+                                'action'=>'Admin\OrderController@store',
                                 'id'=>'myForm',
                                 'role'=>'form',
                                 'method'=>'POST',
@@ -19,7 +19,7 @@
 
         <div class="box-body">
 
-            @include('admin.services.form')
+            @include('admin.orders.form')
 
             <div class="box-footer">
                 <button type="submit" class="btn btn-primary">حفظ</button>

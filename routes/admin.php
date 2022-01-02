@@ -7,7 +7,7 @@ Route::group(['middleware' => ['guest:admin']], function () {
     Route::post('/login', 'AuthController@login');
 });
 
-Route::group(['middleware' => ['auth:admin']], function () {
+    Route::group(['middleware' => ['auth:admin']], function () {
     Route::get('/', 'HomeController@index');
     Route::get('home', 'HomeController@index');
 
@@ -22,9 +22,6 @@ Route::group(['middleware' => ['auth:admin']], function () {
 
     Route::resource('products','ProductController');
     Route::get('products/toggle-boolean/{id}/{action}', 'ProductController@toggleBoolean')->name('products.toggleBoolean');
-
-    Route::resource('categories','CategoryController');
-    Route::get('categories/toggle-boolean/{id}/{action}', 'CategoryController@toggleBoolean')->name('categories.toggleBoolean');
 
     Route::resource('photo', 'PhotoController');
 
@@ -43,13 +40,8 @@ Route::group(['middleware' => ['auth:admin']], function () {
     Route::get('users/toggle-boolean/{id}/{action}', 'UserController@toggleBoolean')->name('facilities.users.toggleBoolean');
     Route::resource('roles', 'RoleController');
 
-    /// order
-//    Route::resource('orders', 'OrderController');
-//    Route::post('cancel-order/{id}', 'OrderController@requestCancel');
-//    Route::post('accept-order/{id}','OrderController@acceptOrder');
-
-    ////
-    ///
+    ///////////////////////////
+    
     /// client area
     Route::resource('clients', 'ClientController');
 
@@ -57,11 +49,14 @@ Route::group(['middleware' => ['auth:admin']], function () {
     Route::resource('categories', 'CategoryController');
     Route::get('category/toggle-boolean/{id}/{action}', 'CategoryController@toggleBoolean')->name('category.toggleBoolean');
 
-
     Route::resource('advertisements','AdvertisementController');
     Route::get('advertisements/toggle-boolean/{id}/{action}', 'AdvertisementController@toggleBoolean')->name('advertisements.toggleBoolean');
 
+    Route::resource('orders','OrderController');
+    Route::get('orders/toggle-boolean/{id}/{action}', 'OrderController@toggleBoolean')->name('orders.toggleBoolean');
 
+    Route::resource('contacts','ContactController');
+    Route::get('contacts/toggle-boolean/{id}/{action}', 'ContactController@toggleBoolean')->name('contacts.toggleBoolean');
 
     Route::get('certificates','CertificateController@index');
     Route::get('certificates/{id}','CertificateController@update')->name('certificates.update');

@@ -32,6 +32,7 @@ class ClientController extends Controller
     {
         return view($this->viewsDomain . $view, $params);
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -61,6 +62,7 @@ class ClientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
         //
@@ -89,7 +91,7 @@ class ClientController extends Controller
      */
     public function show($id)
     {
-
+       //
     }
 
     /**
@@ -100,6 +102,7 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
+        //
     }
 
     /**
@@ -109,6 +112,7 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    
     public function update(Request $request, $id)
     {
 

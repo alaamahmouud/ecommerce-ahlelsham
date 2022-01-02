@@ -33,8 +33,6 @@
                         <th>الاسم</th>
                         <th>البريد الالكتروني</th>
                         <th>رقم الهاتف</th>
-                        <th>الكود</th>
-                        <th>الشهاده</th>
                         </thead>
                         <tbody>
 
@@ -44,8 +42,6 @@
                                 <td>{{$record->full_name}}</td>
                                 <td>{{$record->email}}</td>
                                 <td>{{$record->phone}}</td>
-                                <td>{{$record->code}}</td>
-                                <td>{{$record->certificate}}</td>
                         @endforeach
                         </tbody>
                     </table>

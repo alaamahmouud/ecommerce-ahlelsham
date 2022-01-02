@@ -58,6 +58,7 @@ class AboutUsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
         //
@@ -76,7 +77,6 @@ class AboutUsController extends Controller
         //
         $rules =
             [
-
                 'content' => 'required' ,
                 'attachments' =>'required'
             ];
@@ -105,6 +105,7 @@ class AboutUsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function show($id)
     {
         //
@@ -116,6 +117,7 @@ class AboutUsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function edit($id)
     {
         //
@@ -130,12 +132,12 @@ class AboutUsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, $id)
     {
         //
         $rules =
             [
-
                 'content' => 'required' ,
                 'attachments' =>'required'
             ];
@@ -144,8 +146,6 @@ class AboutUsController extends Controller
             [
                 'content.required' => 'الرجاء ادخال الوصف ',
             ];
-
-
 
         $data = validator()->make($request->all(), $rules, $error_sms);
 
@@ -161,10 +161,10 @@ class AboutUsController extends Controller
 
         if (!$oldFile)
         {
-            Attachment::addAttachment($request->file('attachments'), $record, 'details/details', ['save' => 'original']);
+            Attachment::addAttachment($request->file('attachments'), $record, 'abouts/abouts', ['save' => 'original']);
 
         }else {
-            Attachment::updateAttachment($request->file('attachments'), $oldFile, $record, 'details/details', ['save' => 'original']);
+            Attachment::updateAttachment($request->file('attachments'), $oldFile, $record, 'abouts/abouts', ['save' => 'original']);
         }
         return redirect($this->url);
     }
@@ -175,6 +175,7 @@ class AboutUsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function destroy($id)
     {
 
@@ -190,9 +191,6 @@ class AboutUsController extends Controller
         ];
         return Response::json($data, 200);
     }
-
-
-
 
 
 }

@@ -36,33 +36,3 @@ Route::group(['namespace' => 'Api','prefix'=> 'v1' ],function ()
 
 
     });
-
-
-    //first
-
-    // Route::post('send-pin-code', 'AuthController@clientSendPinCode');
-    // Route::post('check-pin-code','AuthController@checkCode');
-    
-    // Route::post('new-password','AuthController@newPassword');
-    // Route::post('reset-password','AuthController@resetpassword') ;
-    // Route::get('home-out-auth','MainController@index');
-
-
-    //two
-
-    // Route::get('client-profile', 'AuthController@showProfile');
-    // Route::post('update-profile', 'AuthController@updateProfile');
-    // Route::post('change-password', 'AuthController@changePassword');
-    // Route::post('logout', 'AuthController@logOut');
-
-    
-    // Route::get('certificate','MainController@certificate');
-    // Route::post('is_certificate','MainController@is_certificate');
-
-    // Route::post('serviceDetails','MainController@serviceDetails');
-
-    // Route::get('notifications','MainController@notifications');
-    // Route::post('read-notification','MainController@readNotification');
-    // Route::post('delete-notification','MainController@deleteNotification');
-
-    // Route::get('addresses','MainController@addresses');

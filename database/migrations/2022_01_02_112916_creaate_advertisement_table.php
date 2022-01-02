@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSlidersTable extends Migration
+class CreaateAdvertisementTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,15 @@ class CreateSlidersTable extends Migration
      */
     public function up()
     {
-        Schema::create('sliders', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->boolean('is_active')->default(0);
-            $table->timestamps();
+        Schema::create('advertisements', function(Blueprint $table)
+        {
+			$table->increments('id');
+			$table->timestamps();
+			$table->string('name');
+			$table->boolean('is_active')->default(0);
         });
-    }
 
-    //defoalt->0
+    }
 
     /**
      * Reverse the migrations.
@@ -30,6 +30,6 @@ class CreateSlidersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sliders');
+        Schema::drop('advertisements');
     }
 }

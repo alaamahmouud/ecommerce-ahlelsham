@@ -11,11 +11,11 @@ class Order extends Model
         
             protected $table = 'orders';
             public $timestamps = true;
-            protected $fillable = array('name','client_id','product_id');
-    
+            protected $fillable = array('name','client_id', 'total_price' ,'delivery' , 'price_after_delivery' ,'status');
+            
             public function products()
             {
-                return $this->hasMany(Product::class);
+                return $this->belongsToMany(Product::class);
             }
 
             public function client()

@@ -42,12 +42,12 @@ class MainController extends ParentApi
                 }
             })->with('attachmentRelation')->get();
 
-            $slider = Slider::where('is_active',1)->with('attachmentRelation')->get();
+            $advertisement = Advertisement::where('is_active',1)->with('attachmentRelation')->get();
 
             // $products =Product::with('attachmentRelation')->get() ;
 
             return $this->helper->responseJson(1,'done',
-                ['slider' => $slider,
+                ['advertisement' => $advertisement,
                 'products' => $products,
                 ]);
         }

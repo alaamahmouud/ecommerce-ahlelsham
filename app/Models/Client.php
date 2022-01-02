@@ -33,4 +33,7 @@ class Client extends Authenticatable
         return $this->hasMany('App\Models\Token');
     }
 
+    public function getFullNameAttribute() {
+        return ucfirst($this->first_name) . ' ' . ucfirst($this->last_name);
+    }
 }

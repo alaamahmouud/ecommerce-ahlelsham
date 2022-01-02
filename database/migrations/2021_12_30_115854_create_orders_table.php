@@ -19,7 +19,6 @@ class CreateOrdersTable extends Migration
             $table->decimal('total_price');
             $table->decimal('delivery');
             $table->decimal('price_after_delivery');
-            $table->integer('product_id');
             $table->enum('status', ['Pending', 'Wait', 'done' ,'cancel']);
             $table->integer('client_id');
             $table->timestamps();

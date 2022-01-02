@@ -56,6 +56,7 @@
                         <th>#</th>
 
                         <th>الوصف</th>
+                        <th>الصوره</th>
                         <th class="text-center">تعديل</th>
                         <th class="text-center">حذف</th>
                         </thead>
@@ -64,6 +65,19 @@
                             <tr id="removable{{$record->id}}">
                                 <td>{{($records->perPage() * ($records->currentPage() - 1)) + $loop->iteration}}</td>
                                 <td>{{optional($record)->content}}</td>
+                                <td>
+                                    @forelse($record->attachmentRelation as $img)
+
+                                                                            <img alt="image" class="img-fluid img-responsive"
+
+                                                                            src="{{asset($img->path)}}"  style=" border-radius: 50%; width: 50px ; height: 50px;">
+                                    @empty
+
+                                                                                <span>لا يوجد صورة للاعلان</span
+
+                                    @endempty
+
+                                </td>
 
                                 <td class="text-center"><a href="{{url('admin/about-us/' . $record->id .'/edit')}}" class="btn btn-xs btn-success"><i class="fa fa-edit"></i></a></td>
                                 <td class="text-center">

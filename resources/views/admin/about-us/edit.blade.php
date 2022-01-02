@@ -1,7 +1,6 @@
-
 @extends('admin.layouts.main',[
                                 'page_header'       => 'about',
-                                'page_description'  => ' edit   ',
+                                'page_description'  => ' تعديل   ',
                                 'link' => url('admin/about')
                                 ])
 @section('content')
@@ -9,7 +8,7 @@
 <div class="box box-primary">
     <!-- form start -->
     {!! Form::model($model,[
-                            'url'=>url('admin/about/'.$model->id),
+                            'url'=>url('admin/about-us/'.$model->id),
                             'id'=>'myForm',
                             'role'=>'form',
                             'method'=>'PUT',

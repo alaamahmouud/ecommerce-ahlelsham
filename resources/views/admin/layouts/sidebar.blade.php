@@ -63,6 +63,14 @@
                 </a>
             </li>
 
+                 
+            <li>
+                <a href="{{url('admin/advertisements')}}">
+                    <i class="fa fa-home"></i>
+                    <span class="nav-label">العروض</span>
+                </a>
+            </li>
+
             <li>
                <a href="{{url('admin/categories')}}">
                     <i class="fa fa-home"></i>
@@ -76,70 +84,34 @@
                     <span class="nav-label">المنتجات</span>
                 </a>
            </li>
-            
-            <!-- <li>
-                <a href="{{url('admin/advertisements')}}">
+
+           <li>
+                <a href="{{url('admin/orders')}}">
                     <i class="fa fa-home"></i>
-                    <span class="nav-label">العروض</span>
+                    <span class="nav-label">الطلبات</span>
                 </a>
-            </li> -->
+            </li>
 
-{{--            <li>--}}
-{{--                <a href="{{url('admin/categories')}}">--}}
-{{--                    <i class="fa fa-home"></i>--}}
-{{--                    <span class="nav-label">الاقسام</span>--}}
-{{--                </a>--}}
-{{--            </li>--}}
-
-            <!-- <li>
-                <a href="{{url('admin/services')}}">
+            <li>
+                <a href="{{url('admin/contacts')}}">
                     <i class="fa fa-home"></i>
-                    <span class="nav-label"> الخدمات</span>
+                    <span class="nav-label"> تواصل معنا</span>
                 </a>
-            </li> -->
+            </li>
 
-            <!-- <li>
-                <a href="{{url('admin/details')}}">
-                    <i class="fa fa-home"></i>
-                    <span class="nav-label"> تفاصيل الخدمات</span>
-                </a>
-            </li> -->
-
-
-            <!-- <li>
+            <li>
                 <a href="{{url('admin/clients')}}">
                     <i class="fa fa-home"></i>
                     <span class="nav-label">العملاء</span>
                 </a>
-            </li> -->
+            </li>
 
-            <!-- <li>
+            <li>
                 <a href="{{url('admin/about-us')}}">
                     <i class="fa fa-home"></i>
                     <span class="nav-label">من نحن</span>
                 </a>
-            </li> -->
-            
-            <!-- <li>
-                <a href="{{url('admin/certificates')}}">
-                    <i class="fa fa-home"></i>
-                    <span class="nav-label">شهاده الضمان</span>
-                </a>
-            </li> -->
-
-
-            <!-- <li>
-                <a href="{{url('admin/notifications')}}">
-                    <i class="fa fa-bell" aria-hidden="true"></i>
-                    <span class="nav-label">الإشعارات</span>
-                </a>
-            </li> -->
-
-
-
-
-
-
+            </li>
 
         </ul>
     </div>

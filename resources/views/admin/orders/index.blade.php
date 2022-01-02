@@ -1,22 +1,19 @@
 @extends('admin.layouts.main',[
-								'page_header'		=> 'الخدمات',
-								'page_description'	=> 'services ',
-								'link' => url('admin/services')
+								'page_header'		=> 'الطلبات',
+								'page_description'	=> 'الطلبات ',
+								'link' => url('admin/orders')
 								])
 @section('content')
 
     <div class="ibox box-primary">
         <div class="ibox-title">
-            <div class="pull-right">
-
-
-                <a href="{{url('admin/services/create')}}" class="btn btn-primary">
+            <!-- <div class="pull-right">
+                <a href="{{url('admin/orders/create')}}" class="btn btn-primary">
                     <i class="fa fa-plus"></i> إضافة جديد
                 </a>
-            </div>
+            </div> -->
             <div class="clearfix"></div>
         </div>
-
 
 
 {{--        --}}
@@ -33,9 +30,6 @@
                     ]) !!}
                 </div>
             </div>
-
-
-
 
             <div class="col-md-3">
                 <div class="form-group">
@@ -54,29 +48,35 @@
                     <table class="table table-bordered">
                         <thead>
                         <th>#</th>
-                        <th>الاسم</th>
-                        <th>الوصف</th>
-                        <th class="text-center">تعديل</th>
-                        <th class="text-center">حذف</th>
+                        <th>رقم الاوردر</th>
+                        <th>اسم العميل</th>
+                        <th>رقم العميل</th>
+                        <th class="text-center"> تفعيل الظهور في الموقع</th>
+                        <th class="text-center">اظهار التفاصيل</th>
+                        <!-- <th class="text-center">حذف</th> -->
                         </thead>
                         <tbody>
                         @foreach($records as $record)
                             <tr id="removable{{$record->id}}">
                                 <td>{{($records->perPage() * ($records->currentPage() - 1)) + $loop->iteration}}</td>
-                                <td>{{optional($record)->name}}</td>
-                                <td>{{optional($record)->desc}}</td>
-
-                                <td class="text-center"><a href="{{url('admin/services/' . $record->id .'/edit')}}" class="btn btn-xs btn-success"><i class="fa fa-edit"></i></a></td>
+                                <td>{{optional($record)->id}}</td>
+                                <td>{{optional($record->client)->full_name}}</td>
+                                <td>{{optional($record->client)->phone}}</td>
+                                <!-- client -> relation name -->
                                 <td class="text-center">
+                                    {!! \App\MyHelper\Helper::toggleBooleanView($record , url('admin/orders/toggle-boolean/'.$record->id.'/is_active'),'is_active') !!}
+                                </td>
+                                <td class="text-center"><a href="{{url('admin/orders/' . $record->id )}}" class="btn btn-xs btn-success">view</i></a></td>
+                                <!-- <td class="text-center">
                                     <button
                                             id="{{$record->id}}"
                                             data-token="{{ csrf_token() }}"
-                                            data-route="{{url('admin/services/'.$record->id)}}"
+                                            data-route="{{url('admin/orders/'.$record->id)}}"
                                             type="button"
                                             class="destroy btn btn-danger btn-xs">
                                         <i class="fa fa-trash-o"></i>
                                     </button>
-                                </td>
+                                </td> -->
                             </tr>
                         @endforeach
                         </tbody>

@@ -3,43 +3,35 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
-use App\Models\Governorate;
-use App\Models\Log;
-use App\Models\Service;
+use App\Models\Advertisement;
 use App\MyHelper\Helper;
 use Helper\Attachment;
 use Illuminate\Http\Request;
-use Response;
 
-class ServiceController extends Controller
+class AdvertisementController extends Controller
 {
     protected $model ;
-    protected $viewsDomain = 'admin/services.';
-    protected $url = 'admin/services';
+    protected $viewsDomain = 'admin/advertisements.';
+    protected $url = 'admin/advertisements';
     public function __construct()
     {
-        $this->model = new Service();
+        $this->model = new Advertisement();
     }
     public function view($view, $params = [])
     {
         return view($this->viewsDomain . $view, $params);
     }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index(Request $request)
     {
-
-        //
         $records = $this->model->where(function ($q) use ($request)
         {
-            if ($request->id)
-            {
-                $q->where('id',$request->id);
-            }
             if ($request->name) {
                 $q->where(function ($q) use ($request) {
 
@@ -57,9 +49,10 @@ class ServiceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function create()
     {
-        //
         $model = $this->model;
         return $this->view('create', compact('model'));
     }
@@ -70,18 +63,20 @@ class ServiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
         //
         $rules =
             [
                 'name' => 'required',
-                'desc' => 'required'
+                'attachments' => 'required'
             ];
 
         $error_sms =
             [
                 'name.required' => 'الرجاء ادخال الاسم ',
+                'attachments.required' => 'الرجاء ادخال صوره الاعلان ',
             ];
 
         $data = validator()->make($request->all(), $rules, $error_sms);
@@ -91,7 +86,7 @@ class ServiceController extends Controller
         }
 
         $record = $this->model->create($request->all());
-        Attachment::addAttachment($request->file('attachments'), $record, 'services/services', ['save' => 'original']);
+        Attachment::addAttachment($request->file('attachments'), $record, 'advertisements/advertisement',['save' => 'original']);
 
         session()->flash('success', 'تمت الاضافة بنجاح');
         return redirect($this->url);
@@ -103,6 +98,7 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function show($id)
     {
         //
@@ -114,6 +110,7 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function edit($id)
     {
         //
@@ -128,20 +125,21 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, $id)
     {
         //
         $rules =
             [
                 'name' => 'required',
-                'desc' => 'required'
+                'attachments' => 'nullable'
             ];
 
         $error_sms =
             [
                 'name.required' => 'الرجاء ادخال الاسم ',
+                'type_id.required' => 'الرجاء ادخال النوع ',
             ];
-
 
 
         $data = validator()->make($request->all(), $rules, $error_sms);
@@ -153,16 +151,11 @@ class ServiceController extends Controller
         $record = $this->model->findOrFail($id);
 
         $record->update($request->all());
+        $oldFile = $record->attachmentRelation[0];
+
+        Attachment::updateAttachment($request->file('attachments'),$oldFile ,$record, 'advertisements/advertisement', ['save' => 'original']);
+
         session()->flash('success', 'تمت تحديث بنجاح');
-        $oldFile = $record->attachmentRelation[0] ?? null;
-
-        if (!$oldFile)
-        {
-            Attachment::addAttachment($request->file('attachments'), $record, 'details/details', ['save' => 'original']);
-
-        }else {
-            Attachment::updateAttachment($request->file('attachments'), $oldFile, $record, 'details/details', ['save' => 'original']);
-        }
         return redirect($this->url);
     }
 
@@ -172,19 +165,11 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function destroy($id)
     {
 
         $record = $this->model->findOrFail($id);
-
-            if ($record->details()->count())
-            {
-                return response()->json([
-                    'status'  => 0,
-                    'message' => __('لا يمكن الحذف يوجد منتجات مرتبطه')
-                ]);
-
-            }
         $record->delete();
 
         $data = [
@@ -195,7 +180,13 @@ class ServiceController extends Controller
         return Response::json($data, 200);
     }
 
+    public function toggleBoolean($id, $action)
+    {
+        $record = $this->model->findOrFail($id);
+        Helper::toggleBoolean($record);
 
+        return Helper::responseJson(1, 'تمت العملية بنجاح');
+    }
 
 
 

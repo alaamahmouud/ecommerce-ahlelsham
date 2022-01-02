@@ -1,26 +1,18 @@
 <?php
 
 namespace App\Models;
+
 use App\Traits\GetAttribute;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Advertisement extends Model
 {
+    
     use GetAttribute;
 
-    protected $table = 'products';
+    protected $table = 'advertisements';
     public $timestamps = true;
-    protected $fillable = array('name', 'des' , 'price' ,'category_id' ,'discount_value' , 'price_after_discount' ,'qua');
-
-    public function category()
-    {
-       return $this->belongsTo(Category::class);
-    }
-    
-    public function orders()
-    {
-       return $this->belongsToMany(Order::class);
-    }
+    protected $fillable = array('name', 'is_active');
 
     public function __construct(array $attributes = [])
     {
@@ -28,4 +20,5 @@ class Product extends Model
         $this->multiple_attachment = true;
         $this->multiple_attachment_usage = ['default', 'bdf-file'];
     }
+
 }
