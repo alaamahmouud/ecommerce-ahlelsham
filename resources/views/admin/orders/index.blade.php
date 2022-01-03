@@ -52,7 +52,7 @@
                         <th>اسم العميل</th>
                         <th>رقم العميل</th>
                         <th class="text-center"> تفعيل الظهور في الموقع</th>
-                        <th class="text-center">اظهار التفاصيل</th>
+                        <!-- <th class="text-center">اظهار التفاصيل</th> -->
                         <!-- <th class="text-center">حذف</th> -->
                         </thead>
                         <tbody>
@@ -63,9 +63,9 @@
                                 <td>{{optional($record->client)->full_name}}</td>
                                 <td>{{optional($record->client)->phone}}</td>
                                 <!-- client -> relation name -->
-                                <td class="text-center">
+                                <!-- <td class="text-center">
                                     {!! \App\MyHelper\Helper::toggleBooleanView($record , url('admin/orders/toggle-boolean/'.$record->id.'/is_active'),'is_active') !!}
-                                </td>
+                                </td> -->
                                 <td class="text-center"><a href="{{url('admin/orders/' . $record->id )}}" class="btn btn-xs btn-success">view</i></a></td>
                                 <!-- <td class="text-center">
                                     <button

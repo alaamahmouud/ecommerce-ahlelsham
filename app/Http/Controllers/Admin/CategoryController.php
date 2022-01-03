@@ -182,7 +182,7 @@ class CategoryController extends Controller
         ];
         return Response::json($data, 200);
     }
-    
+
     public function toggleBoolean($id, $action)
     {
         $record = $this->model->findOrFail($id);

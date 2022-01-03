@@ -55,7 +55,7 @@
                         <thead>
                         <th>#</th>
                         <th>الاسم</th>
-                        <th class="text-center"> تفعيل الظهور في الموقع</th>
+                        <!-- <th class="text-center"> تفعيل الظهور في الموقع</th> -->
                         <th class="text-center">تعديل</th>
                         <th class="text-center">حذف</th>
                         </thead>
@@ -64,9 +64,9 @@
                             <tr id="removable{{$record->id}}">
                                 <td>{{($records->perPage() * ($records->currentPage() - 1)) + $loop->iteration}}</td>
                                 <td>{{optional($record)->name}}</td>
-                                <td class="text-center">
+                                <!-- <td class="text-center">
                                     {!! \App\MyHelper\Helper::toggleBooleanView($record , url('admin/category/toggle-boolean/'.$record->id.'/is_active'),'is_active') !!}
-                                </td>
+                                </td> -->
                                 <td class="text-center"><a href="{{url('admin/categories/' . $record->id .'/edit')}}" class="btn btn-xs btn-success"><i class="fa fa-edit"></i></a></td>
                                 <td class="text-center">
                                     <button

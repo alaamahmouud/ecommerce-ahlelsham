@@ -28,7 +28,6 @@ class MainController extends ParentApi
 
         public function index(Request $request)
         {
-
             // if($request->has('category_id')) {
             //     $products =Product::where('category_id', $request->category_id)->with('attachmentRelation')->get() ;
             // }else {

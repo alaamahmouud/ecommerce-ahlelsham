@@ -79,7 +79,7 @@
                         <th>قيمه الخصم</th>
                         <th>السعر بعد الخصم</th>
                         <th>اسم القسم</th>
-                        <th class="text-center"> تفعيل الظهور في الموقع</th>
+                        <!-- <th class="text-center"> تفعيل الظهور في الموقع</th> -->
                         <th class="text-center">تعديل</th>
                         <th class="text-center">حذف</th>
                         </thead>
@@ -106,9 +106,9 @@
                                 <td>{{optional($record)->discount_value}}</td>
                                 <td>{{optional($record)->price_after_discount}}</td>
                                 <td>{{optional($record)->category->name}}</td>
-                                <td class="text-center">
+                                <!-- <td class="text-center">
                                     {!! \App\MyHelper\Helper::toggleBooleanView($record , url('admin/products/toggle-boolean/'.$record->id.'/is_active'),'is_active') !!}
-                                </td>
+                                </td> -->
                                 <td class="text-center"><a href="{{url('admin/products/' . $record->id .'/edit')}}" class="btn btn-xs btn-success"><i class="fa fa-edit"></i></a></td>
                                 <td class="text-center">
                                     <button
