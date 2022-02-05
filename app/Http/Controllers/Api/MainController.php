@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\About;
 use App\Models\Address;
 use App\Models\Advertisement;
-use App\Models\Certificate;
 use App\Models\Contact;
 use App\Models\Slider;
 use App\Models\Detail;
